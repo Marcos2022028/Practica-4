@@ -1,0 +1,27 @@
+const int Fotoresistencia = A0;
+const int rele = 2;
+#define out() pinMode(rele, OUTPUT)
+#define in() pinMode(Fotoresistencia,INPUT)
+#define encen() digitalWrite(rele, HIGH)
+#define apag() digitalWrite(rele, LOW)
+#define tiem() delay(500)
+
+void setup () {
+Serial.begin(9600);
+out ();
+in ();
+  
+}
+
+void loop ()  {
+const int Valor_Fotoresistencia = analogRead(Fotoresistencia);
+Serial.println(Valor_Fotoresistencia);
+
+if (Valor_Fotoresistencia < 800) {
+apag ();
+}
+else{
+encen ();
+}
+tiem ();
+}
