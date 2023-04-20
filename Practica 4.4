@@ -1,0 +1,84 @@
+int pinBuzzer =4;//Se especifica pin del Buzzer
+int Do = 261;//valor de la nota Do
+int Re = 293;//valor de la nota Re
+int Mi = 329;//valor de la nota Mi
+int Fa = 349;//valor de la nota Fa
+int Sol = 392;//valor de la nota Sol
+int La = 440;//valor de la nota La
+int Si = 493;//valor de la nota Si
+int do4 = 523;//valor de la nota do4
+int doS4 = 554;//valor de la nota doS4
+int re4 = 587;//valor de la nota re4
+int reS4 = 622;//valor de la nota reS4
+int mi4 = 659;//valor de la nota mi4
+int fa4 = 698;//valor de la nota fa4
+int faS4 = 739;//valor de la nota faS4
+int sol4 = 783;//valor de la nota sol4
+int solS4 = 830;//valor de la nota solS4
+int la4 = 880;//valor de la nota la4
+int laS4 = 932;//valor de la nota laS4
+int si4 = 987;//valor de la nota si4
+double redonda = 2300; //tenia 2000
+double blanca = redonda / 2; // la mitad de la redonda
+double negra = redonda / 4; // la cuarta parte de la redonda
+double corchea = redonda / 8; // la octava parte de la redonda
+double semicorchea = redonda / 16; // tambien llamada doble corchea y es la dieciseisava parte de una redonda
+double fusa = redonda / 32; // tambien llamada triple corchea y es la treintaidosava parte de una redonda
+double semifusa = redonda / 64; //  tambien llamada cuadruple corchea y es la sesentaicuatroava parte de una redonda
+
+#define boton1 2 //Se define pin del boton 1
+#define boton2 3//Se define pin del boton 2
+#define led 5//Se define pin de la led 1
+#define led2 6//Se define pin de la led 2
+
+int duracion = 500;
+int retardo = 1000;
+
+void setup()
+{
+  pinMode(boton1, INPUT_PULLUP);//Se especifica el uso de la resistencia del switch
+   pinMode(boton2, INPUT_PULLUP);//Se especifica el uso de la resistencia del switch
+  pinMode(led, OUTPUT);//Entrada del led
+   pinMode(led2, OUTPUT);//Entrada de led
+}
+
+
+void loop() {
+  if(digitalRead(boton1)==0){
+    digitalWrite(led, HIGH); //Se especifica que la led debe estar apagada hasata que el boton sea precionado
+tone(pinBuzzer,Do, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer, Re, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer, Mi, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer,Fa, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer,Sol, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer,La, duracion);//nota
+delay(retardo);//tiempo
+tone(pinBuzzer,Si, duracion);//nota
+delay(retardo);//tiempo
+ 
+    
+}
+  if(digitalRead(boton2)==0){
+    digitalWrite(led2, HIGH);
+tone(pinBuzzer, do4, negra);delay(negra);
+  tone(pinBuzzer, do4, negra);delay(negra);
+  tone(pinBuzzer, sol4, negra);delay(negra);
+  tone(pinBuzzer, sol4, negra); delay(negra);
+  tone(pinBuzzer, la4, negra); delay(negra);
+  tone(pinBuzzer, la4, negra); delay(negra);
+  tone(pinBuzzer, sol4, blanca); delay(blanca);
+  tone(pinBuzzer, fa4, negra); delay(negra);
+  tone(pinBuzzer, fa4, negra);delay(negra);
+  tone(pinBuzzer, mi4, negra);delay(negra);
+  tone(pinBuzzer, mi4, negra);delay(negra);
+  tone(pinBuzzer, re4, negra); delay(negra);
+  tone(pinBuzzer, re4, negra); delay(negra);
+  tone(pinBuzzer, do4, blanca); delay(blanca);
+    
+}
+}
