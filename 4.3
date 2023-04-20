@@ -1,0 +1,89 @@
+#include <Servo.h>
+
+const int bot_1 = 7;
+const int bot_2 = 2;
+const int bot_3 = 3;
+const int bot_4 = 4;
+const int bot_5 = 5;
+const int buzzer = 8;
+Servo cito;
+const int in_1;
+const int in_2;
+const int in_3;
+const int in_4;
+const int in_5;
+int A;
+int N;
+int D;
+int R;
+int E;
+#define in_1() pinMode(bot_1,INPUT)
+#define in_2() pinMode(bot_2,INPUT)
+#define in_3() pinMode(bot_3,INPUT)
+#define in_4() pinMode(bot_4,INPUT)
+#define in_5() pinMode(bot_5,INPUT)
+#define buzzon() tone(buzzer, 200.0, 1000)
+#define buzzoff() noTone(buzzer)
+#define time() delay(1500)
+
+void setup() {
+  // put your setup code here, to run once:
+  in_1();
+  in_2();
+  in_3();
+  in_4();
+  in_5();
+  cito.attach(6);
+  buzzon();
+  buzzoff();
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int A = digitalRead(bot_1);
+  if (A == 1) {
+    buzzon();
+    cito.write(45);
+    time();
+  }else{
+    buzzoff();
+  }
+
+  int N = digitalRead(bot_2);
+  if (N == 1) {
+    buzzon();
+    cito.write(90);
+    time();
+  }else{
+    buzzoff();
+  }
+
+  int D = digitalRead(bot_3);
+  if (D == 1) {
+    buzzon();
+    cito.write(135);
+    time();
+  }else{
+    buzzoff();
+  }
+
+  int R = digitalRead(bot_4);
+  if (R == 1) {
+    buzzon();
+    cito.write(180);
+    time();
+  }else{
+    buzzoff();
+  }
+
+  int E = digitalRead(bot_5);
+  if (E == 1) {
+    buzzon();
+    cito.write(0);
+    time();
+  }else{
+    buzzoff();
+  }
+
+}
